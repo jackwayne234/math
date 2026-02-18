@@ -1,0 +1,579 @@
+============================================================
+    PRACTICE PROBLEMS: ROUND 2
+============================================================
+
+Work through these at your own pace. Show your work.
+Plug your answers back in to check.
+Use Desmos if you want to visualize anything.
+
+
+############################################################
+    PART 1: KNOW YOUR TOOLS
+############################################################
+
+For each one — describe the formula or law in your own
+words, say WHEN you'd reach for it, and WHY it works.
+No need to solve anything. Just talk about it.
+
+
+------------------------------------------------------------
+ALGEBRA
+------------------------------------------------------------
+
+1. SLOPE-INTERCEPT FORM
+
+   Write the formula:
+
+
+   What does it tell you?
+
+
+   When would you use it?
+
+
+   Why does it work?
+
+
+
+2. SYSTEMS OF EQUATIONS
+
+   What are you actually doing when you solve a system?
+
+
+   When would you use substitution vs elimination?
+
+
+   How do you know if the system has no solution or
+   infinite solutions?
+
+
+
+3. EXPONENT RULES
+
+   List the three main rules in your own words:
+
+   a)
+
+   b)
+
+   c)
+
+   Why do these rules work? (What's the deeper reason?)
+
+
+
+4. ZERO AND NEGATIVE EXPONENTS
+
+   What does x^0 equal and why?
+
+
+   What does x^(-n) mean and why?
+
+
+
+5. FRACTIONAL EXPONENTS & RADICALS
+
+   What does x^(1/2) mean? Why?
+
+
+   What does x^(2/3) mean? (Which part is the root,
+   which part is the power?)
+
+
+   When would you convert between radical and exponent
+   form? Why bother?
+
+
+
+6. DOMAIN OF A FUNCTION
+
+   What are the two things that break a function?
+
+   a)
+
+   b)
+
+   How do you find the domain when you see each one?
+
+
+
+7. INVERSE FUNCTIONS
+
+   What IS an inverse function? Describe it your way.
+
+
+   How do you find one? (What's the procedure?)
+
+
+   How do you CHECK that your inverse is correct?
+
+
+
+8. FOIL / POLYNOMIAL MULTIPLICATION
+
+   What is FOIL actually doing?
+
+
+   When do you use it?
+
+
+   What's the connection between FOIL and factoring?
+
+
+
+9. ZERO PRODUCT PROPERTY
+
+   What does it say?
+
+
+   Why does it work?
+
+
+   When do you use it?
+
+
+
+10. QUADRATIC FORMULA
+
+    Write it out:
+
+
+    What do a, b, and c represent?
+
+
+    When would you use this instead of factoring?
+
+
+
+11. THE DISCRIMINANT
+
+    Write the formula:
+
+
+    What does it tell you?
+
+    Positive means:
+
+    Zero means:
+
+    Negative means:
+
+    Why does this work? (What's it doing inside the
+    quadratic formula?)
+
+
+
+12. COMPLETING THE SQUARE
+
+    Describe the procedure in your own words:
+
+
+    Why do you halve the middle coefficient and square it?
+    (What are you reverse-engineering?)
+
+
+    When would you use this instead of the quadratic
+    formula?
+
+
+
+------------------------------------------------------------
+LOGS
+------------------------------------------------------------
+
+13. WHAT IS A LOGARITHM?
+
+    Describe it in your own words:
+
+
+    How does it relate to exponents?
+
+
+    Write the conversion between exponential and log form:
+
+
+
+14. THE THREE LOG RULES
+
+    Write all three rules and explain why each one works:
+
+    a)
+
+
+    b)
+
+
+    c)
+
+
+    Which one lets you solve exponential equations, and how?
+
+
+
+15. CHANGE OF BASE FORMULA
+
+    Write the formula:
+
+
+    When do you need this?
+
+
+    Why does it work? (The measuring stick analogy)
+
+
+
+------------------------------------------------------------
+TRIG
+------------------------------------------------------------
+
+16. SINE, COSINE, AND TANGENT
+
+    Describe each one using the unit circle (not just
+    SOH-CAH-TOA):
+
+    sin(θ) =
+
+    cos(θ) =
+
+    tan(θ) =
+
+    Where does tangent blow up, and why?
+
+
+
+17. RADIANS
+
+    What IS a radian?
+
+
+    Why do mathematicians prefer radians over degrees?
+
+
+    Conversion: to go from degrees to radians, you...
+
+    To go from radians to degrees, you...
+
+
+
+18. PYTHAGOREAN IDENTITY
+
+    Write the formula:
+
+
+    Where does this come from? (What theorem, applied
+    to what?)
+
+
+    When would you use this?
+
+
+
+19. LAW OF SINES
+
+    Write the formula:
+
+
+    Where does it come from? (The two-right-triangles
+    idea)
+
+
+    When would you use this?
+
+
+    Why did you decide to use this over SOH-CAH-TOA?
+
+
+
+20. INVERSE TRIG FUNCTIONS
+
+    What do they do? (What goes in, what comes out?)
+
+
+    When would you use one?
+
+
+    Why do they have a restricted domain?
+
+
+
+############################################################
+    PART 2: USE THE TOOLS
+############################################################
+
+Show your work. Plug answers back in to check.
+Use Desmos if you want to visualize anything.
+
+
+------------------------------------------------------------
+IDENTIFY IT
+------------------------------------------------------------
+
+1. In the expression 4x^3 - 2x + 11, identify:
+
+   a) The constant:          ___________
+   b) The variable:          ___________
+   c) The coefficient of
+      the first term:        ___________
+   d) How many terms
+      are there?             ___________
+
+
+2. In the equation y = (5/3)x - 7:
+
+   a) What's the slope?      ___________
+   b) What's the y-intercept? ___________
+
+
+------------------------------------------------------------
+DOMAIN & RANGE
+------------------------------------------------------------
+
+3. What's the domain of f(x) = 1/(x + 6)?
+
+   Answer: ___________________________________
+
+   Why? ______________________________________
+
+
+4. What's the domain of g(x) = sqrt(x - 2)?
+
+   Answer: ___________________________________
+
+   Why? ______________________________________
+
+
+------------------------------------------------------------
+FUNCTIONS & INVERSES
+------------------------------------------------------------
+
+5. If f(x) = 4x - 7, find f^(-1)(x).
+
+   Show work:
+
+
+
+
+   f^(-1)(x) = ___________
+
+   Check it (round trip — pick a number, run through both):
+
+
+
+
+6. If g(x) = (x + 3)/5, find g^(-1)(x).
+
+   Show work:
+
+
+
+
+   g^(-1)(x) = ___________
+
+   Check it (round trip):
+
+
+
+
+------------------------------------------------------------
+EXPONENTS & RADICALS
+------------------------------------------------------------
+
+7. Simplify: x^5 * x^2
+
+   Answer: ___________
+
+8. Simplify: x^10 / x^4
+
+   Answer: ___________
+
+9. Simplify: (x^2)^5
+
+   Answer: ___________
+
+10. Simplify: x^(-4)
+
+    Answer: ___________
+
+11. Simplify: sqrt(98)
+
+    Show work:
+
+
+
+    Answer: ___________
+
+12. Evaluate: 8^(4/3)
+
+    Show work:
+
+
+
+    Answer: ___________
+
+
+------------------------------------------------------------
+LOGS
+------------------------------------------------------------
+
+13. Convert to log form: 5^3 = 125
+
+    Answer: ___________
+
+14. Solve for x: log_3(x) = 4
+
+    x = ___________
+
+    Check it:
+
+
+15. Solve for x: 4^x = 256
+
+    x = ___________
+
+    Check it:
+
+
+16. Expand using log rules: log(x^3 * y / z)
+
+    Answer: ___________
+
+
+------------------------------------------------------------
+POLYNOMIALS & FACTORING
+------------------------------------------------------------
+
+17. Multiply using FOIL: (x - 5)(x + 2)
+
+    Show work:
+
+
+
+    Answer: ___________
+
+
+18. Solve: x^2 - 7x + 12 = 0
+
+    Factor it:
+
+    (        )(        ) = 0
+
+    x = ___________  and  x = ___________
+
+    Check both answers (plug back in):
+
+
+
+
+------------------------------------------------------------
+QUADRATIC FORMULA
+------------------------------------------------------------
+
+19. Solve using the quadratic formula: x^2 + 2x - 4 = 0
+
+    a = ___  b = ___  c = ___
+
+    Show work:
+
+
+
+
+    x = ___________  and  x = ___________
+
+
+20. Without solving, how many solutions does
+    x^2 + 6x + 9 = 0 have?
+
+    Discriminant = ___________
+
+    Answer: ___________ solution(s)
+
+
+------------------------------------------------------------
+COMPLETING THE SQUARE
+------------------------------------------------------------
+
+21. Solve by completing the square: x^2 + 10x + 8 = 0
+
+    Show work:
+
+
+
+
+    x = ___________  and  x = ___________
+
+    Check (plug back in):
+
+
+
+
+------------------------------------------------------------
+TRIG — UNIT CIRCLE (use Desmos!)
+------------------------------------------------------------
+
+22. sin(0°) = ___________
+    cos(0°) = ___________
+
+23. sin(30°) = ___________
+    cos(30°) = ___________
+
+24. sin(60°) = ___________
+    cos(60°) = ___________
+
+25. sin(90°) = ___________
+    cos(90°) = ___________
+
+
+------------------------------------------------------------
+RADIANS
+------------------------------------------------------------
+
+26. Convert 90° to radians: ___________
+
+27. Convert 360° to radians: ___________
+
+28. Convert π/4 to degrees: ___________
+
+
+------------------------------------------------------------
+INVERSE TRIG (use Desmos!)
+------------------------------------------------------------
+
+29. arcsin(0.5) = ___________°
+
+30. arccos(0) = ___________°
+
+31. arctan(1) = ___________°
+
+
+------------------------------------------------------------
+LAW OF SINES
+------------------------------------------------------------
+
+32. Triangle with angle A = 45°, side a = 8,
+    angle B = 60°. Find side b.
+
+    Show work:
+
+
+
+
+    b = ___________
+
+
+------------------------------------------------------------
+PYTHAGOREAN IDENTITY
+------------------------------------------------------------
+
+33. If sin(θ) = 0.6, find cos(θ).
+
+    Show work:
+
+
+
+    cos(θ) = ___________
+
+
+============================================================
+    DONE! Plug answers back in to check.
+    Then let's talk through anything that tripped you up.
+============================================================

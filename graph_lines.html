@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Graphing Lines — Learn Slope &amp; Equations</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    color: #eee;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  #sidebar {
+    width: 340px;
+    background: #16213e;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow-y: auto;
+  }
+  #sidebar h1 {
+    font-size: 22px;
+    color: #e94560;
+    margin-bottom: 4px;
+  }
+  #sidebar h2 {
+    font-size: 15px;
+    color: #999;
+    font-weight: normal;
+    margin-bottom: 8px;
+  }
+  .instructions {
+    background: #0f3460;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .instructions b { color: #e94560; }
+  .math-display {
+    background: #0a0a1a;
+    border: 2px solid #e94560;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+  .equation {
+    font-size: 28px;
+    font-weight: bold;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+  .slope-info {
+    font-size: 16px;
+    color: #ccc;
+  }
+  .slope-info .rise { color: #e74c3c; }
+  .slope-info .run { color: #3498db; }
+  .slope-info .result { color: #2ecc71; font-weight: bold; }
+  .point-label {
+    font-size: 14px;
+    color: #aaa;
+  }
+  #line-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    overflow-y: auto;
+  }
+  .line-entry {
+    background: #0f3460;
+    border-radius: 6px;
+    padding: 10px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .line-entry .line-color {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .line-entry button {
+    background: none;
+    border: none;
+    color: #e94560;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 2px 6px;
+  }
+  .line-entry button:hover { color: #ff6b81; }
+  .btn-row {
+    display: flex;
+    gap: 8px;
+  }
+  .btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-clear {
+    background: #e94560;
+    color: white;
+  }
+  .btn-clear:hover { background: #ff6b81; }
+  .btn-undo {
+    background: #0f3460;
+    color: #eee;
+  }
+  .btn-undo:hover { background: #1a4a8a; }
+  .btn-toggle {
+    background: #0f3460;
+    color: #eee;
+  }
+  .btn-toggle:hover { background: #1a4a8a; }
+  .btn-toggle.active {
+    background: #2ecc71;
+    color: #111;
+  }
+  .btn-connect {
+    background: #2ecc71;
+    color: #111;
+    font-size: 16px;
+  }
+  .btn-connect:hover { background: #27ae60; }
+  .btn-connect:disabled {
+    background: #555;
+    color: #999;
+    cursor: not-allowed;
+  }
+
+  .eq-input-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+  .eq-input-row label {
+    font-size: 14px;
+    color: #aaa;
+    white-space: nowrap;
+  }
+  .eq-input-row input {
+    width: 60px;
+    padding: 6px 8px;
+    background: #0a0a1a;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+  }
+  .eq-input-row .btn {
+    flex: none;
+    padding: 6px 14px;
+  }
+
+  .dot-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    min-height: 30px;
+  }
+  .dot-chip {
+    background: #0f3460;
+    border: 2px solid #e94560;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 13px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dot-chip .dot-remove {
+    background: none;
+    border: none;
+    color: #e94560;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    line-height: 1;
+  }
+  .dot-chip .dot-remove:hover { color: #ff6b81; }
+
+  #canvas-wrap {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  canvas {
+    background: #0a0a1a;
+    border-radius: 10px;
+    cursor: crosshair;
+  }
+
+  .status {
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    padding: 4px;
+  }
+</style>
+</head>
+<body>
+
+<div id="sidebar">
+  <div>
+    <h1>Graphing Lines</h1>
+    <h2>Learn slope &amp; y-intercept</h2>
+  </div>
+
+  <div class="instructions">
+    <b>Click</b> on the graph to place dots.<br>
+    Hit <b>Connect the Dots</b> to draw lines between them.<br><br>
+    Or type in slope (m) and y-intercept (b) below.
+  </div>
+
+  <div class="eq-input-row">
+    <label>y =</label>
+    <input type="number" id="input-m" placeholder="m" step="any" value="">
+    <label>x +</label>
+    <input type="number" id="input-b" placeholder="b" step="any" value="">
+    <button class="btn btn-clear" style="flex:none;padding:6px 12px;" onclick="plotFromInput()">Plot</button>
+  </div>
+
+  <div class="math-display" id="math-display">
+    <div class="equation" id="eq-text" style="color:#666;">Click to place dots</div>
+  </div>
+
+  <div style="font-size:13px; color:#aaa; margin-bottom:2px;">Dots placed:</div>
+  <div class="dot-list" id="dot-list"></div>
+
+  <div class="btn-row">
+    <button class="btn btn-connect" id="btn-connect" onclick="connectTheDots()" disabled>Connect the Dots</button>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn btn-toggle" id="btn-triangle" onclick="toggleTriangles()">Triangles: ON</button>
+    <button class="btn btn-undo" onclick="undoDot()">Undo Dot</button>
+    <button class="btn btn-clear" onclick="clearAll()">Clear All</button>
+  </div>
+
+  <div id="line-list"></div>
+
+  <div class="status" id="status">Click on the graph to place a dot</div>
+</div>
+
+<div id="canvas-wrap">
+  <canvas id="graph"></canvas>
+</div>
+
+<script>
+const canvas = document.getElementById('graph');
+const ctx = canvas.getContext('2d');
+const mathDisplay = document.getElementById('math-display');
+const eqText = document.getElementById('eq-text');
+const statusEl = document.getElementById('status');
+const lineListEl = document.getElementById('line-list');
+const dotListEl = document.getElementById('dot-list');
+const btnConnect = document.getElementById('btn-connect');
+
+const colors = ['#ff4d6d','#4dabf7','#51cf66','#ffd43b','#cc5de8','#20c997','#ff922b','#f06595'];
+let colorIdx = 0;
+let lines = [];
+let dots = [];
+let showTriangles = true;
+let mouseGrid = null;
+
+// Grid config
+const gridMin = -10;
+const gridMax = 10;
+let originX, originY, cellSize;
+
+function resize() {
+  const wrap = document.getElementById('canvas-wrap');
+  const size = Math.min(wrap.clientWidth - 40, wrap.clientHeight - 40);
+  canvas.width = size;
+  canvas.height = size;
+  cellSize = size / (gridMax - gridMin);
+  originX = canvas.width / 2;
+  originY = canvas.height / 2;
+  draw();
+}
+
+function gridToCanvas(gx, gy) {
+  return [originX + gx * cellSize, originY - gy * cellSize];
+}
+
+function canvasToGrid(cx, cy) {
+  return [(cx - originX) / cellSize, (originY - cy) / cellSize];
+}
+
+function snapToGrid(val) {
+  return Math.round(val * 2) / 2; // snap to 0.5
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawGrid();
+  lines.forEach((l, i) => drawLine(l, i));
+  drawDots();
+  if (mouseGrid) drawMouseCoords();
+}
+
+function drawGrid() {
+  ctx.strokeStyle = '#0e7490';
+  ctx.lineWidth = 1;
+  for (let i = gridMin; i <= gridMax; i++) {
+    // vertical
+    let [x1, y1] = gridToCanvas(i, gridMin);
+    let [x2, y2] = gridToCanvas(i, gridMax);
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+    // horizontal
+    [x1, y1] = gridToCanvas(gridMin, i);
+    [x2, y2] = gridToCanvas(gridMax, i);
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.stroke();
+  }
+
+  // axes — brighter
+  ctx.strokeStyle = '#888';
+  ctx.lineWidth = 3;
+  let [ax1, ay1] = gridToCanvas(gridMin, 0);
+  let [ax2, ay2] = gridToCanvas(gridMax, 0);
+  ctx.beginPath();
+  ctx.moveTo(ax1, ay1);
+  ctx.lineTo(ax2, ay2);
+  ctx.stroke();
+
+  [ax1, ay1] = gridToCanvas(0, gridMin);
+  [ax2, ay2] = gridToCanvas(0, gridMax);
+  ctx.beginPath();
+  ctx.moveTo(ax1, ay1);
+  ctx.lineTo(ax2, ay2);
+  ctx.stroke();
+
+  // labels — big and bright
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 22px sans-serif';
+  ctx.textAlign = 'center';
+  for (let i = gridMin; i <= gridMax; i++) {
+    if (i === 0) continue;
+    let [x, y] = gridToCanvas(i, 0);
+    ctx.fillText(i, x, y + 22);
+    [x, y] = gridToCanvas(0, i);
+    ctx.textAlign = 'right';
+    ctx.fillText(i, x - 12, y + 6);
+    ctx.textAlign = 'center';
+  }
+  // origin
+  let [ox, oy] = gridToCanvas(0, 0);
+  ctx.fillText('0', ox - 14, oy + 22);
+}
+
+function drawDots() {
+  dots.forEach((dot, i) => {
+    let [cx, cy] = gridToCanvas(dot[0], dot[1]);
+
+    // Bright, big dot
+    ctx.fillStyle = '#ff4d6d';
+    ctx.beginPath();
+    ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+    ctx.fill();
+
+    // White border
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 10, 0, Math.PI * 2);
+    ctx.stroke();
+
+    // Label
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 14px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(`(${formatNum(dot[0])}, ${formatNum(dot[1])})`, cx + 16, cy - 12);
+
+    // Number inside dot
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(i + 1, cx, cy + 4);
+  });
+}
+
+function drawLine(line, idx) {
+  const { p1, p2, m, b, color } = line;
+
+  // draw full line across graph — THICK and BRIGHT
+  if (m === Infinity || m === -Infinity) {
+    let [cx, cy1] = gridToCanvas(p1[0], gridMin);
+    let [, cy2] = gridToCanvas(p1[0], gridMax);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy1);
+    ctx.lineTo(cx, cy2);
+    ctx.stroke();
+  } else {
+    let yStart = m * gridMin + b;
+    let yEnd = m * gridMax + b;
+    let [cx1, cy1] = gridToCanvas(gridMin, yStart);
+    let [cx2, cy2] = gridToCanvas(gridMax, yEnd);
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(cx1, cy1);
+    ctx.lineTo(cx2, cy2);
+    ctx.stroke();
+
+    // y-intercept dot — bigger
+    let [intX, intY] = gridToCanvas(0, b);
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.arc(intX, intY, 9, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(intX, intY, 9, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 14px sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText(`(0, ${formatNum(b)})`, intX + 14, intY - 12);
+
+    // slope triangle
+    if (showTriangles && m !== 0) {
+      drawSlopeTriangle(line);
+    }
+  }
+
+  // draw the two points that made the line — bigger
+  [p1, p2].forEach(p => {
+    let [cx, cy] = gridToCanvas(p[0], p[1]);
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+    ctx.stroke();
+  });
+}
+
+function drawSlopeTriangle(line) {
+  const { m, b, color, p1 } = line;
+  let tx = p1[0];
+  let ty = m * tx + b;
+
+  let run = 1;
+  let rise = m * run;
+
+  if (Math.abs(rise) > 8) {
+    run = 1;
+    rise = m;
+  }
+
+  let x2 = tx + run;
+  let y2 = ty;
+  let x3 = x2;
+  let y3 = ty + rise;
+
+  if (Math.abs(y3) > 9.5 || Math.abs(x2) > 9.5) return;
+
+  let [cx1, cy1] = gridToCanvas(tx, ty);
+  let [cx2, cy2] = gridToCanvas(x2, y2);
+  let [cx3, cy3] = gridToCanvas(x3, y3);
+
+  // fill triangle
+  ctx.fillStyle = color + '25';
+  ctx.beginPath();
+  ctx.moveTo(cx1, cy1);
+  ctx.lineTo(cx2, cy2);
+  ctx.lineTo(cx3, cy3);
+  ctx.closePath();
+  ctx.fill();
+
+  // run line (horizontal) — blue, thicker
+  ctx.strokeStyle = '#4dabf7';
+  ctx.lineWidth = 4;
+  ctx.setLineDash([6, 4]);
+  ctx.beginPath();
+  ctx.moveTo(cx1, cy1);
+  ctx.lineTo(cx2, cy2);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // rise line (vertical) — red, thicker
+  ctx.strokeStyle = '#ff4d6d';
+  ctx.lineWidth = 4;
+  ctx.setLineDash([6, 4]);
+  ctx.beginPath();
+  ctx.moveTo(cx2, cy2);
+  ctx.lineTo(cx3, cy3);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // labels — bigger
+  ctx.font = 'bold 15px sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#4dabf7';
+  ctx.fillText(`run = ${formatNum(run)}`, (cx1 + cx2) / 2, cy1 + (rise >= 0 ? 22 : -10));
+  ctx.fillStyle = '#ff4d6d';
+  ctx.fillText(`rise = ${formatNum(rise)}`, cx2 + (rise >= 0 ? 50 : 55), (cy2 + cy3) / 2);
+}
+
+function drawMouseCoords() {
+  let [cx, cy] = gridToCanvas(mouseGrid[0], mouseGrid[1]);
+  ctx.fillStyle = '#e9456077';
+  ctx.beginPath();
+  ctx.arc(cx, cy, 7, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.fillStyle = '#ccc';
+  ctx.font = 'bold 13px sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText(`(${formatNum(mouseGrid[0])}, ${formatNum(mouseGrid[1])})`, cx + 12, cy - 10);
+}
+
+function formatNum(n) {
+  if (Number.isInteger(n)) return n.toString();
+  if (n * 2 === Math.round(n * 2)) {
+    let num = n * 2;
+    if (num % 2 !== 0) return `${num}/2`;
+  }
+  return Math.round(n * 100) / 100;
+}
+
+function gcd(a, b) {
+  a = Math.round(Math.abs(a * 2));
+  b = Math.round(Math.abs(b * 2));
+  while (b) { [a, b] = [b, a % b]; }
+  return a / 2;
+}
+
+function makeEquationStr(m, b) {
+  if (m === Infinity || m === -Infinity) return 'x = ' + formatNum(lines[lines.length-1]?.p1[0] || 0) + '  (vertical)';
+  let mStr = formatNum(m);
+  let bStr = formatNum(Math.abs(b));
+
+  let eq = 'y = ';
+  if (m === 0) {
+    eq += formatNum(b);
+  } else if (m === 1) {
+    eq += 'x';
+    if (b > 0) eq += ' + ' + bStr;
+    else if (b < 0) eq += ' - ' + bStr;
+  } else if (m === -1) {
+    eq += '-x';
+    if (b > 0) eq += ' + ' + bStr;
+    else if (b < 0) eq += ' - ' + bStr;
+  } else {
+    eq += mStr + 'x';
+    if (b > 0) eq += ' + ' + bStr;
+    else if (b < 0) eq += ' - ' + bStr;
+  }
+  return eq;
+}
+
+function updateDisplay(line) {
+  const { m, b, p1, p2, color } = line;
+  let rise = p2[1] - p1[1];
+  let run = p2[0] - p1[0];
+
+  let eqStr = makeEquationStr(m, b);
+  eqText.style.color = color;
+  eqText.textContent = eqStr;
+
+  let details = '';
+  if (m !== Infinity && m !== -Infinity) {
+    details = `
+      <div class="point-label">Points: (${formatNum(p1[0])}, ${formatNum(p1[1])}) and (${formatNum(p2[0])}, ${formatNum(p2[1])})</div>
+      <div class="slope-info">
+        slope = <span class="rise">rise</span> / <span class="run">run</span>
+        = <span class="rise">${formatNum(rise)}</span> / <span class="run">${formatNum(run)}</span>
+        = <span class="result">${formatNum(m)}</span>
+      </div>
+      <div class="point-label">y-intercept = ${formatNum(b)}</div>
+    `;
+  } else {
+    details = `<div class="slope-info">Vertical line — slope is <span class="result">undefined</span></div>`;
+  }
+  mathDisplay.innerHTML = `<div class="equation" style="color:${color}">${eqStr}</div>${details}`;
+}
+
+function addLineToList(line, idx) {
+  let eq = makeEquationStr(line.m, line.b);
+  let div = document.createElement('div');
+  div.className = 'line-entry';
+  div.innerHTML = `
+    <span><span class="line-color" style="background:${line.color}"></span>${eq}</span>
+    <button onclick="removeLine(${idx})">x</button>
+  `;
+  lineListEl.appendChild(div);
+}
+
+function rebuildLineList() {
+  lineListEl.innerHTML = '';
+  lines.forEach((l, i) => addLineToList(l, i));
+}
+
+// --- Dot management ---
+
+function addDot(gx, gy) {
+  dots.push([gx, gy]);
+  updateDotList();
+  updateConnectButton();
+  draw();
+}
+
+function removeDot(idx) {
+  dots.splice(idx, 1);
+  updateDotList();
+  updateConnectButton();
+  draw();
+}
+
+function undoDot() {
+  if (dots.length > 0) {
+    dots.pop();
+    updateDotList();
+    updateConnectButton();
+    statusEl.textContent = dots.length > 0
+      ? `${dots.length} dot(s) placed. Keep clicking or hit Connect.`
+      : 'Click on the graph to place a dot';
+    draw();
+  }
+}
+
+function updateDotList() {
+  dotListEl.innerHTML = '';
+  dots.forEach((dot, i) => {
+    let chip = document.createElement('span');
+    chip.className = 'dot-chip';
+    chip.innerHTML = `${i+1}: (${formatNum(dot[0])}, ${formatNum(dot[1])}) <button class="dot-remove" onclick="removeDot(${i})">x</button>`;
+    dotListEl.appendChild(chip);
+  });
+}
+
+function updateConnectButton() {
+  btnConnect.disabled = dots.length < 2;
+}
+
+function connectTheDots() {
+  if (dots.length < 2) return;
+
+  // Connect dots in order, each consecutive pair becomes a line
+  for (let i = 0; i < dots.length - 1; i++) {
+    let p1 = dots[i];
+    let p2 = dots[i + 1];
+
+    let rise = p2[1] - p1[1];
+    let run = p2[0] - p1[0];
+    let m, b;
+
+    if (run === 0) {
+      m = Infinity;
+      b = 0;
+    } else {
+      m = rise / run;
+      b = p1[1] - m * p1[0];
+      b = Math.round(b * 1000) / 1000;
+      m = Math.round(m * 1000) / 1000;
+    }
+
+    let color = colors[colorIdx % colors.length];
+    colorIdx++;
+
+    let line = { p1: [...p1], p2: [...p2], m, b, color };
+    lines.push(line);
+  }
+
+  // Show the last line's info
+  if (lines.length > 0) {
+    updateDisplay(lines[lines.length - 1]);
+  }
+
+  rebuildLineList();
+
+  // Clear dots after connecting
+  dots = [];
+  updateDotList();
+  updateConnectButton();
+  statusEl.textContent = 'Lines connected! Click to place new dots.';
+  draw();
+}
+
+function addLine(p1, p2) {
+  let rise = p2[1] - p1[1];
+  let run = p2[0] - p1[0];
+  let m, b;
+
+  if (run === 0) {
+    m = Infinity;
+    b = 0;
+  } else {
+    m = rise / run;
+    b = p1[1] - m * p1[0];
+    b = Math.round(b * 1000) / 1000;
+    m = Math.round(m * 1000) / 1000;
+  }
+
+  let color = colors[colorIdx % colors.length];
+  colorIdx++;
+
+  let line = { p1, p2, m, b, color };
+  lines.push(line);
+  updateDisplay(line);
+  rebuildLineList();
+  draw();
+}
+
+function plotFromInput() {
+  let mVal = parseFloat(document.getElementById('input-m').value);
+  let bVal = parseFloat(document.getElementById('input-b').value);
+  if (isNaN(mVal)) mVal = 1;
+  if (isNaN(bVal)) bVal = 0;
+
+  let p1 = [0, bVal];
+  let p2 = [1, mVal + bVal];
+  addLine(p1, p2);
+  statusEl.textContent = 'Line plotted from equation. Click to place dots.';
+}
+
+function removeLine(idx) {
+  lines.splice(idx, 1);
+  rebuildLineList();
+  if (lines.length > 0) {
+    updateDisplay(lines[lines.length - 1]);
+  } else {
+    mathDisplay.innerHTML = '<div class="equation" style="color:#666">Click to place dots</div>';
+  }
+  draw();
+}
+
+function clearAll() {
+  lines = [];
+  dots = [];
+  colorIdx = 0;
+  lineListEl.innerHTML = '';
+  updateDotList();
+  updateConnectButton();
+  mathDisplay.innerHTML = '<div class="equation" style="color:#666">Click to place dots</div>';
+  statusEl.textContent = 'Click on the graph to place a dot';
+  draw();
+}
+
+function toggleTriangles() {
+  showTriangles = !showTriangles;
+  let btn = document.getElementById('btn-triangle');
+  btn.textContent = 'Triangles: ' + (showTriangles ? 'ON' : 'OFF');
+  btn.classList.toggle('active', showTriangles);
+  draw();
+}
+
+canvas.addEventListener('click', (e) => {
+  let rect = canvas.getBoundingClientRect();
+  let cx = e.clientX - rect.left;
+  let cy = e.clientY - rect.top;
+  let [gx, gy] = canvasToGrid(cx, cy);
+  gx = snapToGrid(gx);
+  gy = snapToGrid(gy);
+
+  addDot(gx, gy);
+  statusEl.textContent = `Dot ${dots.length} placed at (${formatNum(gx)}, ${formatNum(gy)}). ${dots.length >= 2 ? 'Hit Connect or keep adding dots.' : 'Place at least one more dot.'}`;
+});
+
+canvas.addEventListener('mousemove', (e) => {
+  let rect = canvas.getBoundingClientRect();
+  let cx = e.clientX - rect.left;
+  let cy = e.clientY - rect.top;
+  let [gx, gy] = canvasToGrid(cx, cy);
+  mouseGrid = [snapToGrid(gx), snapToGrid(gy)];
+  draw();
+});
+
+canvas.addEventListener('mouseleave', () => {
+  mouseGrid = null;
+  draw();
+});
+
+window.addEventListener('resize', resize);
+resize();
+</script>
+</body>
+</html>

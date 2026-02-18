@@ -1,0 +1,389 @@
+============================================================
+    PRACTICE PROBLEMS: ALGEBRA THROUGH TRIG
+============================================================
+
+Work through these at your own pace. Show your work.
+Plug your answers back in to check.
+
+
+------------------------------------------------------------
+IDENTIFY IT
+------------------------------------------------------------
+
+1. In the expression 7x^2 + 3x - 5, identify:
+
+   a) The constant:          ___-5________
+   b) The variable:          _____x______
+   c) The coefficient of
+      the first term:        ______7_____
+   d) How many terms
+      are there?             _______2____
+
+
+2. In the equation y = -2x + 9:
+
+   a) What's the slope?      ________-2/1___
+   b) What's the y-intercept? ___________9
+
+
+3. In y = (3/4)x - 1:
+
+   a) What's the slope?      ___________3/4
+   b) What's the y-intercept? ___________-1
+
+
+------------------------------------------------------------
+DOMAIN & RANGE
+------------------------------------------------------------
+
+4. What's the domain of f(x) = 1/(x - 3)?
+
+   Answer: _____3____________________________
+
+   Why? _____________you can't divide by zero_____________________
+
+
+5. What's the domain of g(x) = sqrt(x + 4)?
+
+   Answer: ____________>=-5_____________________
+
+   Why? _________square root of a negative number gives an imaginary number_________________________
+
+
+------------------------------------------------------------
+FUNCTIONS & INVERSES
+------------------------------------------------------------
+
+6. If f(x) = 3x + 2, find f^(-1)(x).
+
+   Show work:
+
+
+
+
+   f^(-1)(x) = ___i don't know this one________
+
+   Check it (plug back in):
+
+
+
+
+7. If g(x) = (x - 5)/2, find g^(-1)(x).
+
+   Show work:
+
+
+
+
+   g^(-1)(x) = ____i dont know this one_______
+
+   Check it (plug back in):
+
+
+
+
+------------------------------------------------------------
+EXPONENTS & RADICALS
+------------------------------------------------------------
+
+8. Simplify: x^4 * x^3
+
+   Answer: ____x^7_______
+   Rule used: _____product rule______
+
+
+9. Simplify: x^8 / x^2
+
+   Answer: ___x^6________
+   Rule used: ___quotient rule________
+
+
+10. Simplify: (x^3)^4
+
+    Answer: ___x^12________
+    Rule used: __power rule_________
+
+
+11. Simplify: sqrt(72)
+
+    Show work:8^2 is 64 so take that out. 
+
+8 sqrt 8
+2x2x2 = 8 so take out one of the twos
+
+10 sqrt 2? that's not right. 
+
+72/2=36  ok... 6squared is 36. take the 6 out.
+
+6sqrt of 2
+
+
+    Answer: __6 sqrt of 2_________
+
+
+12. Evaluate: 27^(2/3)
+
+    Show work: cubed root of 27 = 3 and there's two of those so 6?
+
+
+
+
+    Answer: __6_________
+
+
+13. Simplify: x^(-3)
+
+    Answer: _____1/x^3______
+    Rule used: ____power rule?____i thought that was calculus though? idk?___
+
+
+------------------------------------------------------------
+LOGS & BASES
+------------------------------------------------------------
+
+14. Solve for x: log_2(x) = 5
+
+    Show work:logs and bases...hmmm
+    x times log_2(2^x) = 5
+    x times 1 = 5
+    x = 5? not sure about this one
+
+
+
+
+    x = __5_________
+
+    Check it:
+I'll check my work. 
+log_2(5)=5... naw that's the wrong answer. i need help with this one. 2^5 doesn't equal 5 haha.
+
+15. Solve for x: 3^x = 81
+
+    Show work: logs and bases again hmmm. maybe i can turn this into a log? log_3(81) = x... now what do i do? hmmm. i'm not sure. i need help for this one. 
+
+
+
+
+    x = ___________
+
+    Check it:
+
+
+16. Expand using log rules: log(a^2 * b / c)
+
+    Show work:i need help with this one. 
+
+
+
+
+    Answer: _________________________________
+
+
+------------------------------------------------------------
+POLYNOMIALS & DEGREES
+------------------------------------------------------------
+
+17. What's the degree of: 4x^3 - x^5 + 2x + 7?
+
+    Answer: __5_________
+    Which term tells you? _____x^5 is the highest exponent______
+
+
+18. Multiply using FOIL: (x + 3)(x - 4)
+
+    Show work:x^2+4x+3x+12   add like terms. x^2+7x+12
+
+
+
+
+    Answer: _______x^2+7x+12__________________________
+
+
+------------------------------------------------------------
+FACTORING & ZERO PRODUCT PROPERTY
+------------------------------------------------------------
+
+19. Solve: x^2 + 5x + 6 = 0
+
+    Factor it:
+
+    ( x  +       2)( x+       3) = 0
+
+    Set each factor to zero:
+
+    x = ___-2________  and  x = _____-3______
+
+    Check both answers (plug back in):
+(-2+2)(-2+3)=0 yep
+(-3+2)(-3+3)=0 yep
+
+
+
+20. Solve: x^2 - 9 = 0
+
+    Factor it:
+
+    ( x       -3)( x       +3) = 0
+
+    x = ___3________  and  x = ___-3________
+
+    Check both answers:
+(3-3)(3+3)=0 yep
+(-3-3)(-3+3)=0 yep
+
+
+
+------------------------------------------------------------
+QUADRATIC FORMULA & DISCRIMINANT
+------------------------------------------------------------
+
+    Reminder: x = (-b +/- sqrt(b^2 - 4ac)) / 2a
+
+21. Solve using the quadratic formula: x^2 - 4x + 1 = 0
+
+    a = ___  b = ___  c = ___
+
+    Show work:shit! i forgot the formula. let me try to figure it out.
+    ... i don't remember...hmmm. i'll try to factor it out.
+    (x   +4)(x   +1/4)? what two numbers when multipied together equals 1 but added together equals 4? whew.... 
+
+let's check my work on this one. x^2+1/4x+4x+4/4? hmmmm. i'm not sure. i need help on this one. 
+
+
+    x = ___________  and  x = ___________
+
+
+22. Without solving, how many solutions does
+    x^2 + 2x + 5 = 0 have?
+
+    a = 1___  b = _2__  c = ___5
+
+    Discriminant = b^2 - 4ac = _____2^2-20 = -16 and _-2^2-20=16_____
+
+    Positive = 2 solutions
+    Zero = 1 solution
+    Negative = no real solutions
+
+    Answer: ____2_______ solutions
+
+
+------------------------------------------------------------
+COMPLETING THE SQUARE
+------------------------------------------------------------
+
+23. Solve by completing the square: x^2 + 8x + 3 = 0
+
+    Show work:i don't konw how to do this. i need help on this one. I just think of factoring these. but i'm not sure if that's the right thing to do. 
+
+
+
+
+    x = ___________  and  x = ___________
+
+    Check (plug back in):
+
+
+
+
+------------------------------------------------------------
+TRIG RATIOS
+------------------------------------------------------------
+
+    Reminder: sin = opp/hyp  cos = adj/hyp  tan = opp/adj
+
+24. A right triangle has opposite = 5, hypotenuse = 13.
+
+    a) sin(theta) = ___sine of_5/13_=_.00671275...? that's a very weird looking triangle haha. i probably did something wrong. or i'm interpreting the solution incorrectly? i need help here. __
+
+    b) cos(theta) = __i need help here. COH opposite/hypotinuse but i don't think that the sine i got was correct. _________
+       (find adjacent first)
+
+    Show work for adjacent:
+
+need help here. 
+
+
+25. If tan(theta) = 3/4 and it's a right triangle,
+    what are the three sides?
+
+    opposite = ___________
+    adjacent = ___________
+    hypotenuse = ___________
+
+    Show work:
+so draw the circle and put in the right triangle... they didn't give me the degrees of sine or the hypotinuse or the cosine. this will be hard.... extending the hypotinuse to meet the vertical line of the hypotinuse may help? I know that the hypotinuse is longer than the tangent line. opposite of the tangent line? i think that's the cosine. the adjacent would be sine. hmmmmm. i need help with this one. maybe a picture would help? idk if maybe there can be questions in the form of a picture? maybe that would help? idk. 
+
+
+
+------------------------------------------------------------
+UNIT CIRCLE & RADIANS
+------------------------------------------------------------
+
+26. Convert 180 degrees to radians.
+
+    Answer: ___pi because 2pi is the full unit circle circumference________
+
+
+27. Convert pi/3 to degrees.
+
+    Answer: ____so 360/3 = 120 degrees_______
+
+
+28. a) sin(pi/2) = _180__________
+
+    b) cos(pi/2) = ____shit, uhhh probably 180 also cosine is is like moving the right triangle to the left side of the circle? maybe.? i need help with this one. _______
+
+    Think about where you are on the circle.
+
+
+------------------------------------------------------------
+PYTHAGOREAN IDENTITY
+------------------------------------------------------------
+
+    Reminder: sin^2(theta) + cos^2(theta) = 1
+
+29. If sin(theta) = 3/5, find cos(theta).
+
+    Show work:sin^2(3/5) + cosine^2(x)? = tangent^2(y)?
+
+i'm not sure on this one. need more training. 
+
+
+    cos(theta) = ___________
+
+
+------------------------------------------------------------
+INVERSE TRIG
+------------------------------------------------------------
+
+30. If sin(theta) = 1/2, what's theta?
+
+    theta = arcsin(1/2) = ___________
+
+
+31. If cos(theta) = 0, what's theta?
+
+    theta = arccos(0) = ___________
+
+
+------------------------------------------------------------
+LAW OF SINES
+------------------------------------------------------------
+
+    Reminder: a/sin(A) = b/sin(B)
+
+32. Triangle with angle A = 30 degrees, side a = 10,
+    angle B = 45 degrees. Find side b.
+
+    Show work:
+
+
+
+
+    b = ___________
+
+
+============================================================
+    DONE! Now go back and check any you skipped.
+    Then let's talk through the ones that tripped you up.
+============================================================
